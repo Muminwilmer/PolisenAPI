@@ -43,10 +43,10 @@ img{
 }
 #pageButton {
   width: 40px;
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
 }
 #pageButton:hover {
-  width: 46px;
+  width: 44px;
 }
 
 #checkbox{
