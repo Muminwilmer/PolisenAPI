@@ -41,6 +41,14 @@ img{
 #settings{
   float: right;
 }
+#settings:hover {
+  animation-name: example;
+  animation-duration: 4s;
+}
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
 
 #checkbox{
   background-color: gray;
