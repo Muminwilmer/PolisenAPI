@@ -1,5 +1,5 @@
 .table{
-	border-color: black;
+  border-color: black;
   border-collapse: collapse;
   background-color: lightgray;
   border-radius: 10px;
@@ -41,14 +41,12 @@ img{
 #settings{
   float: right;
 }
-#pageButton:hover {
-  animation-name: bigger;
-  animation-duration: 0.4s;
-  animation-iteration-count: infinite;
+#pageButton {
+  width: auto;
+  transition: all 0.3s ease;
 }
-@keyframes bigger {
-  from {width:40px;}
-  to {width:44px;}
+#pageButton:hover {
+  width: 46px;
 }
 
 #checkbox{
