@@ -43,11 +43,11 @@ img{
 }
 #pageButton:hover {
   animation-name: bigger;
-  animation-duration: 1s;
+  animation-duration: 0.4s;
 }
 @keyframes bigger {
   from {width:40px;}
-  to {width:50px;}
+  to {width:44px;}
 }
 
 #checkbox{
