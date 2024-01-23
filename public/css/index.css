@@ -41,7 +41,7 @@ img{
 #settings{
   float: right;
 }
-#settings:hover {
+#pageButton:hover {
   animation-name: bigger;
   animation-duration: 1s;
 }
