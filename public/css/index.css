@@ -28,6 +28,7 @@ img{
   justify-content: left;
   display:flex;
   align-items: center;
+  font-color: gray;
 }
 
 #images{
