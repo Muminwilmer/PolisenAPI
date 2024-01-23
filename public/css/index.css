@@ -44,6 +44,7 @@ img{
 #pageButton:hover {
   animation-name: bigger;
   animation-duration: 0.4s;
+  animation-iteration-count: infinite;
 }
 @keyframes bigger {
   from {width:40px;}
