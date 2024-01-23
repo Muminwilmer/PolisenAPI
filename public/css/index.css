@@ -42,12 +42,12 @@ img{
   float: right;
 }
 #settings:hover {
-  animation-name: example;
-  animation-duration: 4s;
+  animation-name: bigger;
+  animation-duration: 1s;
 }
-@keyframes example {
-  from {width:100%;}
-  to {width:120%;}
+@keyframes bigger {
+  from {width:40px;}
+  to {width:50px;}
 }
 
 #checkbox{
