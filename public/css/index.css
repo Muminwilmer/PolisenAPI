@@ -46,8 +46,8 @@ img{
   animation-duration: 4s;
 }
 @keyframes example {
-  from {background-color: red;}
-  to {background-color: yellow;}
+  from {width:100%;}
+  to {width:120%;}
 }
 
 #checkbox{
