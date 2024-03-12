@@ -6,7 +6,7 @@ const app = express();
 // Serve static files from the 'public' directory at the root
 app.use(express.static(path.join(__dirname, 'public')));
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
