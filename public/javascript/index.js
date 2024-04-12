@@ -107,8 +107,10 @@ function populateTable(inputString) {
   parsedData.forEach(item => {
     // Detects if you only want specific cities and removes them
     if (getCookie("onlySelectedCity") == "true") {
-      if (!getCookie("citys").includes(item.location.name)) {
-        return;
+      if (getCookie("citys" !== ""){
+        if (!getCookie("citys").includes(item.location.name)) {
+          return;
+        }
       }
     }
     // Adds row
