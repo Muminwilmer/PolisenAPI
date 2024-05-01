@@ -74,10 +74,9 @@ img{
   font-weight: bold;
   border: none;
   border-radius: 5px;
-  max-width: 100%;
+  max-width: 80%;
   overflow: hidden;
   font-size: 100%;
-  max-width:50%;
 }
 #clearCity:hover,#clearEvent:hover{
   background-color: red;
