@@ -259,20 +259,20 @@
       // audioCity.checked = getCookie("audioCity") === "true";
       onlySelectedCity.checked = localStorage.getItem('onlySelectedCity')
       onlySelectedEvent.checked = localStorage.getItem('onlySelectedEvent')
-      onlySelectedEvent.checked = localStorage.getItem('onlySelectedBoth')
+      onlySelectedBoth.checked = localStorage.getItem('onlySelectedBoth')
 
       // Fill city list
       var cityValue = localStorage.getItem('cities')
       if (cityValue !== null){
         var cityList = document.getElementById("selectCityList");
-        console.log(await fillList(cityList,cityValue))
+        await fillList(cityList,cityValue)
       }
 
       // Fill event list
       var eventValue = localStorage.getItem('events')
       if (eventValue !== null){
         var eventList = document.getElementById("selectEventList");
-        console.log(await fillList(eventList,eventValue))
+        await fillList(eventList,eventValue)
       }
 
 
@@ -281,13 +281,13 @@
         var infoArray = Info.split(',');
         for (var i = 0; i < list.options.length; i++) {
 
+          // Loops through each saved variable
           for (var l = 0; l < Info.length; l++) {
             // If it's there, select it
             if (infoArray[l] == list.options[i].value) {
               list.options[i].selected = true;
             }
           }
-
         }
       }
     }
