@@ -107,12 +107,13 @@ function populateTable(inputString) {
   parsedData.forEach(item => {
     // Detects if you only want specific cities and removes them
     if (localStorage.getItem('onlySelectedCity') == "true") {
-      if (localStorage.getItem('cities') !== null){
+      if (localStorage.getItem('cities').length>0){
         if (!localStorage.getItem('cities').includes(item.location.name)) {
           return;
         }
       }
     }
+
     // Adds row
     let row = table.insertRow();
     

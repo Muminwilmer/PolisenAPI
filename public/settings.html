@@ -35,7 +35,11 @@
       <div id="padding"></div> -->
       <div id="checkbox">
         <input type="checkbox" id="onlySelectedCity" name="onlySelectedCity" />
-        <label for="onlySelectedCity">Only show news from the selected city</label>
+        <label for="onlySelectedCity">Only show selected cities</label>
+      </div>
+      <div id="checkbox">
+        <input type="checkbox" id="onlySelectedEvent" name="onlySelectedEvent" />
+        <label for="onlySelectedEvent">Only show selected events</label>
       </div>
 
 
@@ -242,25 +246,26 @@
       // if (getCookie("playAudio") !== "true" && getCookie("playAudio") !== "false") {document.cookie = "playAudio=" + "false"};
       // if (getCookie("audioCity") !== "true" && getCookie("audioCity") !== "false") {document.cookie = "audioCity=true"};
       if (localStorage.getItem('onlySelectedCity') == null){localStorage.setItem('onlySelectedCity', true)};
-
+      if (localStorage.getItem('onlySelectedEvent') == null){localStorage.setItem('onlySelectedEvent', true)};
 
       // playAudio.checked = getCookie("playAudio") === "true";
       // audioCity.checked = getCookie("audioCity") === "true";
       onlySelectedCity.checked = localStorage.getItem('onlySelectedCity')
+      onlySelectedEvent.checked = localStorage.getItem('onlySelectedEvent')
 
-      // Fill city list
-      var cityValue = localStorage.getItem('cities')
-      if (cityValue !== null){
-        var cityList = document.getElementById("selectCityList");
-        console.log(fillList(cityList,cityValue))
-      }
+      // // Fill city list
+      // var cityValue = localStorage.getItem('cities')
+      // if (cityValue !== null){
+      //   var cityList = document.getElementById("selectCityList");
+      //   console.log(fillList(cityList,cityValue))
+      // }
 
-      // Fill event list
-      var eventValue = localStorage.getItem('events')
-      if (eventValue !== null){
-        var eventList = document.getElementById("selectEventList");
-        console.log(fillList(eventList,eventValue))
-      }
+      // // Fill event list
+      // var eventValue = localStorage.getItem('events')
+      // if (eventValue !== null){
+      //   var eventList = document.getElementById("selectEventList");
+      //   console.log(fillList(eventList,eventValue))
+      // }
 
 
       function fillList(list,Info){
