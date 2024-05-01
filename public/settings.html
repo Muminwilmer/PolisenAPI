@@ -241,7 +241,7 @@
       // Default Settings
       // if (getCookie("playAudio") !== "true" && getCookie("playAudio") !== "false") {document.cookie = "playAudio=" + "false"};
       // if (getCookie("audioCity") !== "true" && getCookie("audioCity") !== "false") {document.cookie = "audioCity=true"};
-      if (localStorage.getItem('onlySelectedCity') == undefined){localStorage.setItem('onlySelectedCity', true)};
+      if (localStorage.getItem('onlySelectedCity') == null){localStorage.setItem('onlySelectedCity', true)};
 
 
       // playAudio.checked = getCookie("playAudio") === "true";
