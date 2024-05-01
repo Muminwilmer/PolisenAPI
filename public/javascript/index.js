@@ -3,7 +3,7 @@ const URL = "https://polisen.se/api/events";
 window.onload = function() {
   populateTable()
 }
-setInterval(populateTable, 20000);
+setInterval(populateTable, 30*1000);
 
 function test() {
   newUpdate()
@@ -80,10 +80,7 @@ function populateTable(inputString) {
   // Detect and handle new events
   if (localStorage.getItem('oldEvent') !== parsedID) {
     newUpdate()
-    console.log(localStorage.getItem('oldEvent'), parsedID, "News!")
     localStorage.setItem('oldEvent', parsedID)
-  } else {
-    console.log(localStorage.getItem('oldEvent'), parsedID, "Nothing new.")
   }
 
   // Adds and removes the Reload icon
@@ -92,7 +89,6 @@ function populateTable(inputString) {
   reload.src = 'images/reload.ico'
   reload.id = 'reloadImage'
   reload.style.paddingLeft = '5px'
-  const div = document.getElementById("images");
   document.getElementById("images").appendChild(reload);
   setTimeout(function() {
     reload.remove()
@@ -104,9 +100,8 @@ function populateTable(inputString) {
 
 
   let count = 0
-  
   parsedData.forEach(async item => {
-
+    
     async function checkIfExists(list,check){
       list = JSON.parse(list)
       for (let i = 0; i < list.length; i++) {
