@@ -125,13 +125,11 @@ function populateTable(inputString) {
 
     async function checkIfExists(list,check){
       for (let i = 0; i < list.length; i++) {
-        if (list[i] == check) {
-          console.log(list+check+true)
+        if (list[i].type == check) {
           return true;
         }
         // If it doesn't return the function
         if (i == list.length-1) {
-          // console.log(list+check+false)
           return false;
         }
       }
@@ -143,9 +141,7 @@ function populateTable(inputString) {
       if (localStorage.getItem('cities').length > 2 && localStorage.getItem('events').length > 2){
         const cityFound = await checkIfExists(localStorage.getItem('cities'),item.location.name)
         const eventFound = await checkIfExists(localStorage.getItem('events'),item.type)
-        console.log(cityFound)
-        console.log(eventFound)
-        console.log(cityFound==true && eventFound==true)
+        
         if (cityFound==true && eventFound==true){}else{
           console.log("exit1")
           return;
