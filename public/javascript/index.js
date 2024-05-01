@@ -145,6 +145,7 @@ function populateTable(inputString) {
         const eventFound = checkIfExists(localStorage.getItem('events'),item.type)
   
         if (cityFound && eventFound){checked=true}else{
+          console.log("exit1")
           return;
         }
       }
@@ -155,6 +156,7 @@ function populateTable(inputString) {
         const eventFound = checkIfExists(localStorage.getItem('events'),item.type)
 
         if (cityFound || eventFound){checked=true}else{
+          console.log("exit2")
           return;
         }
       }
@@ -164,6 +166,7 @@ function populateTable(inputString) {
         const cityFound = checkIfExists(localStorage.getItem('cities'),item.location.name)
         
         if (cityFound){checked=true}else{
+          console.log("exit3")
           return;
         }
       }
@@ -173,6 +176,7 @@ function populateTable(inputString) {
         const eventFound = checkIfExists(localStorage.getItem('events'),item.type)
         
         if (eventFound){checked=true}else{
+          console.log("exit4")
           return;
         }
       }
