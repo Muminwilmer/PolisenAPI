@@ -257,9 +257,9 @@
 
       // playAudio.checked = getCookie("playAudio") === "true";
       // audioCity.checked = getCookie("audioCity") === "true";
-      onlySelectedCity.checked = localStorage.getItem('onlySelectedCity')
-      onlySelectedEvent.checked = localStorage.getItem('onlySelectedEvent')
-      onlySelectedBoth.checked = localStorage.getItem('onlySelectedBoth')
+      onlySelectedCity.checked = localStorage.getItem('onlySelectedCity') == true;
+      onlySelectedEvent.checked = localStorage.getItem('onlySelectedEvent') == true;
+      onlySelectedBoth.checked = localStorage.getItem('onlySelectedBoth') == true;
 
       // Fill city list
       var cityValue = JSON.parse(localStorage.getItem('cities'))
@@ -276,6 +276,17 @@
       }
 
 
+      list = JSON.parse(list)
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].type == check) {
+          return true;
+        }
+        // If it doesn't return the function
+        if (i == list.length-1) {
+          return false;
+        }
+      }
+
       async function fillList(list,Info){
         // Loop entire list
         var infoArray = Info.split(',');
@@ -284,6 +295,8 @@
           // Loops through each saved variable
           for (var l = 0; l < Info.length; l++) {
             // If it's there, select it
+            console.log(infoArray[l])
+            console.log(list.options)
             if (infoArray[l] == list.options[i].value) {
               list.options[i].selected = true;
             }
