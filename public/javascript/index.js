@@ -104,11 +104,69 @@ function populateTable(inputString) {
 
 
   let count = 0
+  
   parsedData.forEach(item => {
-    // Detects if you only want specific cities and removes them
-    if (localStorage.getItem('onlySelectedCity') == "true") {
-      if (localStorage.getItem('cities').length>0){
-        if (!localStorage.getItem('cities').includes(item.location.name)) {
+    let skip;
+    // // Detects if you only want specific cities and removes them
+    // if (localStorage.getItem('onlySelectedCity') === "true") {
+    //   const cities = localStorage.getItem('cities');
+    //   if (Array.isArray(cities) && cities.length > 0) {
+    //     // Loops through each saved city
+    //     for (let i = 0; i < cities.length; i++) {
+    //       if (cities[i] == item.location.name) {
+    //         break; // Exit if it exists
+    //       }
+    //       // If it doesn't return the function
+    //       if (i == cities.length-1) {
+    //         return;
+    //       }
+    //     }
+    //   }
+    // }
+
+    async function checkIfExists(list,check){
+      for (let i = 0; i < list.length; i++) {
+        if (list[i] == check) {
+          return true;
+        }
+        // If it doesn't return the function
+        if (i == list.length-1) {
+          return false;
+        }
+      }
+    }
+
+    if (localStorage.getItem('onlySelectedBoth')) {
+      if (localStorage.getItem('cities').length > 0 && localStorage.getItem('events').length > 0){
+        const cityFound = checkIfExists(localStorage.getItem('cities'),item.location.name)
+        const eventFound = checkIfExists(localStorage.getItem('events'),item.type)
+  
+        if (cityFound && eventFound){}else{
+          return;
+        }
+      }
+    } else if (localStorage.getItem('onlySelectedCity') && localStorage.getItem('onlySelectedEvents')) {
+      if (localStorage.getItem('cities').length > 0 || localStorage.getItem('events').length > 0){
+        const cityFound = checkIfExists(localStorage.getItem('cities'),item.location.name)
+        const eventFound = checkIfExists(localStorage.getItem('events'),item.type)
+
+        if (cityFound || eventFound){}else{
+          return;
+        }
+      }
+    } else if (localStorage.getItem('onlySelectedCity')) {
+      if (localStorage.getItem('cities').length > 0){
+        const cityFound = checkIfExists(localStorage.getItem('cities'),item.location.name)
+        
+        if (cityFound){}else{
+          return;
+        }
+      }
+    } else if (localStorage.getItem('onlySelectedEvents')) {
+      if (localStorage.getItem('events').length > 0){
+        const eventFound = checkIfExists(localStorage.getItem('events'),item.type)
+        
+        if (eventFound){}else{
           return;
         }
       }
