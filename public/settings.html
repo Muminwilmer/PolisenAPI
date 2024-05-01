@@ -262,14 +262,14 @@
       onlySelectedBoth.checked = localStorage.getItem('onlySelectedBoth')
 
       // Fill city list
-      var cityValue = localStorage.getItem('cities')
+      var cityValue = JSON.parse(localStorage.getItem('cities'))
       if (cityValue !== null){
         var cityList = document.getElementById("selectCityList");
         await fillList(cityList,cityValue)
       }
 
       // Fill event list
-      var eventValue = localStorage.getItem('events')
+      var eventValue = JSON.parse(localStorage.getItem('events'))
       if (eventValue !== null){
         var eventList = document.getElementById("selectEventList");
         await fillList(eventList,eventValue)
