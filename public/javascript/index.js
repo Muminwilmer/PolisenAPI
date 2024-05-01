@@ -121,11 +121,12 @@ function populateTable(inputString) {
     }
 
     let checked = false;
+    const cities = localStorage.getItem('cities')
+    const events = localStorage.getItem('events')
     if (localStorage.getItem('onlySelectedBoth')=="true" && !checked) {
-      console.log(localStorage.getItem('cities').length)
-      if (localStorage.getItem('cities').length > 2 && localStorage.getItem('events').length > 2){
-        const cityFound = await checkIfExists(localStorage.getItem('cities'),item.location.name)
-        const eventFound = await checkIfExists(localStorage.getItem('events'),item.type)
+      if (cities.length > 2 && events.length > 2 && cities !== null && events !== null){
+        const cityFound = await checkIfExists(cities,item.location.name)
+        const eventFound = await checkIfExists(events,item.type)
 
         if (cityFound==true && eventFound==true){checked=true}else{
           console.log("exit1")
@@ -134,9 +135,9 @@ function populateTable(inputString) {
       }
     }
     if (localStorage.getItem('onlySelectedCity')=="true" && localStorage.getItem('onlySelectedEvent')=="true" && !checked) {
-      if (localStorage.getItem('cities').length > 2 || localStorage.getItem('events').length > 2){
-        const cityFound = await checkIfExists(localStorage.getItem('cities'),item.location.name)
-        const eventFound = await checkIfExists(localStorage.getItem('events'),item.type)
+      if (cities.length > 2 || events.length > 2 && cities !== null && events !== null){
+        const cityFound = await checkIfExists(cities,item.location.name)
+        const eventFound = await checkIfExists(events,item.type)
 
         if (cityFound==true || eventFound==true){checked=true}else{
           console.log("exit2")
@@ -145,8 +146,8 @@ function populateTable(inputString) {
       }
     }
     if (localStorage.getItem('onlySelectedCity')=="true" && !checked) {
-      if (localStorage.getItem('cities').length > 2){
-        const cityFound = await checkIfExists(localStorage.getItem('cities'),item.location.name)
+      if (cities.length > 2 && cities !== null){
+        const cityFound = await checkIfExists(cities,item.location.name)
         
         if (cityFound==true){checked=true}else{
           console.log("exit3")
@@ -155,8 +156,8 @@ function populateTable(inputString) {
       }
     }
     if (localStorage.getItem('onlySelectedEvent')=="true" && !checked) {
-      if (localStorage.getItem('events').length > 2){
-        const eventFound = await checkIfExists(localStorage.getItem('events'),item.type)
+      if (events.length > 2 && events !== null){
+        const eventFound = await checkIfExists(events,item.type)
         
         if (eventFound==true){checked=true}else{
           console.log("exit4")
