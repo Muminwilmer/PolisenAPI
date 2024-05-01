@@ -74,14 +74,14 @@ function populateTable(inputString) {
 
   // Adds the oldEvent cookie if it doesn't exist.
   if (localStorage.getItem('oldEvent') == null) {
-    document.cookie = "oldEvent=" + parsedID;
+    localStorage.setItem('oldEvent', parsedID)
   }
 
   // Detect and handle new events
   if (localStorage.getItem('oldEvent') !== parsedID) {
     newUpdate()
     console.log(localStorage.getItem('oldEvent'), parsedID, "News!")
-    document.cookie = "oldEvent=" + parsedID;
+    localStorage.setItem('oldEvent', parsedID)
   } else {
     console.log(localStorage.getItem('oldEvent'), parsedID, "Nothing new.")
   }
@@ -107,7 +107,7 @@ function populateTable(inputString) {
   parsedData.forEach(item => {
     // Detects if you only want specific cities and removes them
     if (localStorage.getItem('onlySelectedCity') == "true") {
-      if (localStorage.getItem('cities') !== ""){
+      if (localStorage.getItem('cities') !== undefined){
         if (!localStorage.getItem('cities').includes(item.location.name)) {
           return;
         }
