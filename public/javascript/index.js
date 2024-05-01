@@ -144,32 +144,35 @@ function populateTable(inputString) {
         const cityFound = checkIfExists(localStorage.getItem('cities'),item.location.name)
         const eventFound = checkIfExists(localStorage.getItem('events'),item.type)
   
-        if (cityFound && eventFound){}else{
+        if (cityFound && eventFound){checked=true}else{
           return;
         }
       }
-    } else if (localStorage.getItem('onlySelectedCity') && localStorage.getItem('onlySelectedEvents') && !checked) {
+    }
+    if (localStorage.getItem('onlySelectedCity') && localStorage.getItem('onlySelectedEvents') && !checked) {
       if (localStorage.getItem('cities').length > 2 || localStorage.getItem('events').length > 2){
         const cityFound = checkIfExists(localStorage.getItem('cities'),item.location.name)
         const eventFound = checkIfExists(localStorage.getItem('events'),item.type)
 
-        if (cityFound || eventFound){}else{
+        if (cityFound || eventFound){checked=true}else{
           return;
         }
       }
-    } else if (localStorage.getItem('onlySelectedCity') && !checked) {
+    }
+    if (localStorage.getItem('onlySelectedCity') && !checked) {
       if (localStorage.getItem('cities').length > 2){
         const cityFound = checkIfExists(localStorage.getItem('cities'),item.location.name)
         
-        if (cityFound){}else{
+        if (cityFound){checked=true}else{
           return;
         }
       }
-    } else if (localStorage.getItem('onlySelectedEvents') && !checked) {
+    }
+    if (localStorage.getItem('onlySelectedEvents') && !checked) {
       if (localStorage.getItem('events').length > 2){
         const eventFound = checkIfExists(localStorage.getItem('events'),item.type)
         
-        if (eventFound){}else{
+        if (eventFound){checked=true}else{
           return;
         }
       }
