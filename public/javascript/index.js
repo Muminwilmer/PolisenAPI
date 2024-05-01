@@ -123,6 +123,7 @@ function populateTable(inputString) {
     function doesLocalVarExist(variable){
       if (variable == null)return false;
       if (variable.length == 0)return false;
+      return true;
     }
 
     let checked = false;
@@ -190,16 +191,8 @@ function populateTable(inputString) {
     //Type
     let typeCell = row.insertCell(0);
     typeCell.innerHTML = item.type;
-    //let aMore = document.createElement('a');
-    //let infoLinkText = document.createTextNode(item.type);
-    //aMore.appendChild(infoLinkText);
-    //aMore.title = item.location.type;
-    //aMore.href = "https://www.polisen.se" + item.url;
-    //aMore.target = "_blank";
-    //typeCell.appendChild(aMore)
 
     //Short Info
-
     let infoCell = row.insertCell(1);
     let aInfo = document.createElement('a');
     let infoLink = document.createTextNode(item.summary);
@@ -216,13 +209,13 @@ function populateTable(inputString) {
     aLocation.href = `https://www.google.com/maps/search/${item.location.gps}`;
     aLocation.target = "_blank";
     locationCell.appendChild(aLocation)
-    //Adds button -
+
     //let dropdownButton = document.createElement('button');
     //dropdownButton.textContent = item.location.name;
-    //Adds div -
+
     //let dropdownContent = document.createElement('div');
     //dropdownContent.style.display = 'none';
-    //Makes button do stuff -
+
     //dropdownButton.addEventListener('click', function() {
     //  locationCell.innerHTML = `<iframe
     //    src="https://www.google.com/maps/search/${item.location.gps}">
@@ -242,11 +235,6 @@ function populateTable(inputString) {
     const formattedDate = formatDateString(item.datetime);
     let datetimeCell = row.insertCell(3);
     datetimeCell.innerHTML = formattedDate
-
-    //date sort test
-    //let sorttest = row.insertCell(6);
-    //const parsedDate = Date.parse(item.datetime);
-    //sorttest.innerHTML = parsedDate
   })
 
 }
@@ -258,7 +246,7 @@ function parseJsonString(data) {
 
 
 function formatDateString(inputString) {
-  const date = new Date(inputString) //Date.parse(inputString);
+  const date = new Date(inputString)
 
   //0 in Date
   let dayOfMonth = date.getDate();
