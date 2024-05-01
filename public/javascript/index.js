@@ -106,22 +106,6 @@ function populateTable(inputString) {
   let count = 0
   
   parsedData.forEach(async item => {
-    // // Detects if you only want specific cities and removes them
-    // if (localStorage.getItem('onlySelectedCity') === "true") {
-    //   const cities = localStorage.getItem('cities');
-    //   if (Array.isArray(cities) && cities.length > 0) {
-    //     // Loops through each saved city
-    //     for (let i = 0; i < cities.length; i++) {
-    //       if (cities[i] == item.location.name) {
-    //         break; // Exit if it exists
-    //       }
-    //       // If it doesn't return the function
-    //       if (i == cities.length-1) {
-    //         return;
-    //       }
-    //     }
-    //   }
-    // }
 
     async function checkIfExists(list,check){
       list = JSON.parse(list)
@@ -143,38 +127,38 @@ function populateTable(inputString) {
         const cityFound = await checkIfExists(localStorage.getItem('cities'),item.location.name)
         const eventFound = await checkIfExists(localStorage.getItem('events'),item.type)
 
-        if (cityFound==true && eventFound==true){}else{
+        if (cityFound==true && eventFound==true){checked=true}else{
           console.log("exit1")
           return;
         }
       }
     }
-    if (localStorage.getItem('onlySelectedCity')=="true" && localStorage.getItem('onlySelectedEvents')=="true") {
+    if (localStorage.getItem('onlySelectedCity')=="true" && localStorage.getItem('onlySelectedEvent')=="true" && !checked) {
       if (localStorage.getItem('cities').length > 2 || localStorage.getItem('events').length > 2){
         const cityFound = await checkIfExists(localStorage.getItem('cities'),item.location.name)
         const eventFound = await checkIfExists(localStorage.getItem('events'),item.type)
 
-        if (cityFound==true || eventFound==true){}else{
+        if (cityFound==true || eventFound==true){checked=true}else{
           console.log("exit2")
           return;
         }
       }
     }
-    if (localStorage.getItem('onlySelectedCity')=="true") {
+    if (localStorage.getItem('onlySelectedCity')=="true" && !checked) {
       if (localStorage.getItem('cities').length > 2){
         const cityFound = await checkIfExists(localStorage.getItem('cities'),item.location.name)
         
-        if (cityFound==true){}else{
+        if (cityFound==true){checked=true}else{
           console.log("exit3")
           return;
         }
       }
     }
-    if (localStorage.getItem('onlySelectedEvents')=="true") {
+    if (localStorage.getItem('onlySelectedEvent')=="true" && !checked) {
       if (localStorage.getItem('events').length > 2){
         const eventFound = await checkIfExists(localStorage.getItem('events'),item.type)
         
-        if (eventFound==true){}else{
+        if (eventFound==true){checked=true}else{
           console.log("exit4")
           return;
         }
