@@ -105,7 +105,7 @@ function populateTable(inputString) {
 
   let count = 0
   
-  parsedData.forEach(item => {
+  parsedData.forEach(async item => {
     let skip;
     // // Detects if you only want specific cities and removes them
     // if (localStorage.getItem('onlySelectedCity') === "true") {
@@ -132,7 +132,7 @@ function populateTable(inputString) {
         }
         // If it doesn't return the function
         if (i == list.length-1) {
-          console.log(list+check+false)
+          // console.log(list+check+false)
           return false;
         }
       }
@@ -141,10 +141,10 @@ function populateTable(inputString) {
     if (localStorage.getItem('onlySelectedBoth') && !checked) {
       console.log(localStorage.getItem('cities').length)
       if (localStorage.getItem('cities').length > 2 && localStorage.getItem('events').length > 2){
-        const cityFound = checkIfExists(localStorage.getItem('cities'),item.location.name)
-        const eventFound = checkIfExists(localStorage.getItem('events'),item.type)
+        const cityFound = await checkIfExists(localStorage.getItem('cities'),item.location.name)
+        const eventFound = await checkIfExists(localStorage.getItem('events'),item.type)
   
-        if (cityFound && eventFound){checked=true}else{
+        if (cityFound==true && eventFound==true){checked=true}else{
           console.log("exit1")
           return;
         }
@@ -152,10 +152,10 @@ function populateTable(inputString) {
     }
     if (localStorage.getItem('onlySelectedCity') && localStorage.getItem('onlySelectedEvents') && !checked) {
       if (localStorage.getItem('cities').length > 2 || localStorage.getItem('events').length > 2){
-        const cityFound = checkIfExists(localStorage.getItem('cities'),item.location.name)
-        const eventFound = checkIfExists(localStorage.getItem('events'),item.type)
+        const cityFound = await checkIfExists(localStorage.getItem('cities'),item.location.name)
+        const eventFound = await checkIfExists(localStorage.getItem('events'),item.type)
 
-        if (cityFound || eventFound){checked=true}else{
+        if (cityFound==true || eventFound==true){checked=true}else{
           console.log("exit2")
           return;
         }
@@ -163,9 +163,9 @@ function populateTable(inputString) {
     }
     if (localStorage.getItem('onlySelectedCity') && !checked) {
       if (localStorage.getItem('cities').length > 2){
-        const cityFound = checkIfExists(localStorage.getItem('cities'),item.location.name)
+        const cityFound = await checkIfExists(localStorage.getItem('cities'),item.location.name)
         
-        if (cityFound){checked=true}else{
+        if (cityFound==true){checked=true}else{
           console.log("exit3")
           return;
         }
@@ -173,9 +173,9 @@ function populateTable(inputString) {
     }
     if (localStorage.getItem('onlySelectedEvents') && !checked) {
       if (localStorage.getItem('events').length > 2){
-        const eventFound = checkIfExists(localStorage.getItem('events'),item.type)
+        const eventFound = await checkIfExists(localStorage.getItem('events'),item.type)
         
-        if (eventFound){checked=true}else{
+        if (eventFound==true){checked=true}else{
           console.log("exit4")
           return;
         }
