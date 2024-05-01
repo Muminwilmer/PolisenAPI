@@ -23,7 +23,7 @@
 
   <div id="selections">
     <div id="row1">
-      <div id="checkbox">
+      <!-- <div id="checkbox">
         <input type="checkbox" id="playAudio" name="PlayAudio" />
         <label for="playAudio">Play audio when there is news</label>
       </div>
@@ -32,7 +32,7 @@
         <input type="checkbox" id="audioCity" name="audioCity" />
         <label for="audioCity">Only play audio from these cities</label>
       </div>
-      <div id="padding"></div>
+      <div id="padding"></div> -->
       <div id="checkbox">
         <input type="checkbox" id="onlySelectedCity" name="onlySelectedCity" />
         <label for="onlySelectedCity">Only show news from the selected city</label>
@@ -45,7 +45,7 @@
       </div>
     </div>
     <div id="row2">
-      <select id="selectLists" multiple>
+      <select id="selectCityList" multiple>
         <option>Alingsås</option>
         <option>Arboga</option>
         <option>Arvika</option>
@@ -179,12 +179,56 @@
         <option>Östersund</option>
         <option>Östhammar</option>
       </select>
+
+      <!-- Events -->
+      <select id="selectEventList" multiple>
+        <option>Brand</option>
+        <option>Stöld</option>
+
+        <option>Övrigt</option>
+        <option>Ordningslagen</option>
+
+        <option>Olaga intrång</option>
+        <option>Sabotage mot blåljus</option>
+        <option>Misshandel</option>
+        <option>Trafikkontroll</option>
+        <option>Polisinsats</option>
+
+        <option>Rattfylleri</option>
+        <option>Fylleri/LOB</option>
+
+        <option>Sammanfattning natt</option>
+
+        <option>Skadegörelse</option>
+
+        <option>Trafikolycka, personskada</option>
+        <option>Trafikolycka, singel</option>
+        <option>Trafikolycka, smitning</option>
+
+        <option>Olaga hot</option>
+        <option>Vapenlagen</option>
+
+        <option>Mord/dråp</option>
+        <option>Stöld</option>
+
+        <option>Mord/dråp, försök</option>
+        <option>Stöld, försök</option>
+
+        <option>Rån</option>
+        <option>Kontroll</option>
+        <option>Försvunnen person</option>
+        <option>Trafikbrott</option>
+        <option>Arbetsplatsolycka</option>
+        <option>Narkotikabrott</option>
+        <option>Olovlig körning</option>
+        <option>Ofredande</option>
+      </select>
       <div id="applyDiv">
         <div id="divdiv">
           <button id="clearCity" onclick='document.cookie = "citys="'>Clear City Selections</button>
         </div>
         <div id="divdiv">
-          <button id="clearCity" onclick='document.cookie = "citys="'>Clear Event Selections</button>
+          <button id="clearEvent" onclick='document.cookie = "events="'>Clear Event Selections</button>
         </div>
       </div>
 
@@ -195,25 +239,34 @@
   <script>
     function loadSettings() {
       // Default Settings
-      if (getCookie("playAudio") !== "true" && getCookie("playAudio") !== "false") {document.cookie = "playAudio=" + "false"};
-      if (getCookie("audioCity") !== "true" && getCookie("audioCity") !== "false") {document.cookie = "audioCity=true"};
-      if (getCookie("onlySelectedCity") !== "true" && getCookie("onlySelectedCity") !== "false") {document.cookie = "onlySelectedCity=false"};
+      // if (getCookie("playAudio") !== "true" && getCookie("playAudio") !== "false") {document.cookie = "playAudio=" + "false"};
+      // if (getCookie("audioCity") !== "true" && getCookie("audioCity") !== "false") {document.cookie = "audioCity=true"};
+      if (getCookie("onlySelectedCity") !== "true" && getCookie("onlySelectedCity") !== "false") {document.cookie = "onlySelectedCity=true"};
 
 
-      playAudio.checked = getCookie("playAudio") === "true";
-      audioCity.checked = getCookie("audioCity") === "true";
+      // playAudio.checked = getCookie("playAudio") === "true";
+      // audioCity.checked = getCookie("audioCity") === "true";
       onlySelectedCity.checked = getCookie("onlySelectedCity") === "true";
 
-      var cookieValue = getCookie("citys");
-      var selectedCities = cookieValue ? cookieValue.split(',') : [];
+      // Fill city list
+      var cookieCityValue = getCookie("citys");
+      var selectedCities = cookieCityValue ? cookieCityValue.split(',') : [];
+      var cityList = document.getElementById("selectCityList");
+      fillList(cityList,selectedCities)
 
-      // Get the select element
-      var select = document.getElementById("selectLists");
+      // Fill event list
+      var cookieEventValue = getCookie("events");
+      var selectedEvents = cookieEventValue ? cookieEventValue.split(',') : [];
+      var eventList = document.getElementById("selectEventList");
+      fillList(eventList,selectedEvents)
 
-      // Iterate through the options and select them if they are in the selectedCities array
-      for (var i = 0; i < select.options.length; i++) {
-        if (selectedCities.includes(select.options[i].value)) {
-          select.options[i].selected = true;
+      function fillList(list,Info){
+        // Loop entire list
+        for (var i = 0; i < list.options.length; i++) {
+          // If it's there, select it
+          if (Info.includes(list.options[i].value)) {
+            list.options[i].selected = true;
+          }
         }
       }
     }
