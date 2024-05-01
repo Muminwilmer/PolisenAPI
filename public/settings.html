@@ -283,9 +283,7 @@
           // Loops through each saved variable
           for (var l = 0; l < info.length; l++) {
             // If it's there, select it
-            console.log(info[l])
-            console.log(list.options[i])
-            if (info[l] == list.options[i].value) {
+            if (info[l].type == list.options[i].value) {
               list.options[i].selected = true;
             }
           }
