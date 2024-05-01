@@ -120,47 +120,48 @@ function populateTable(inputString) {
       }
     }
 
+    function doesLocalVarExist(variable){
+      if (variable == null)return false;
+      if (variable.length == 0)return false;
+    }
+
     let checked = false;
     const cities = localStorage.getItem('cities')
     const events = localStorage.getItem('events')
     if (localStorage.getItem('onlySelectedBoth')=="true" && !checked) {
-      if (cities.length > 2 && events.length > 2 && cities !== null && events !== null){
+      if (doesLocalVarExist(cities) && doesLocalVarExist(events)){
         const cityFound = await checkIfExists(cities,item.location.name)
         const eventFound = await checkIfExists(events,item.type)
 
         if (cityFound==true && eventFound==true){checked=true}else{
-          console.log("exit1")
           return;
         }
       }
     }
     if (localStorage.getItem('onlySelectedCity')=="true" && localStorage.getItem('onlySelectedEvent')=="true" && !checked) {
-      if (cities.length > 2 || events.length > 2 && cities !== null && events !== null){
+      if (doesLocalVarExist(cities) || doesLocalVarExist(events)){
         const cityFound = await checkIfExists(cities,item.location.name)
         const eventFound = await checkIfExists(events,item.type)
 
         if (cityFound==true || eventFound==true){checked=true}else{
-          console.log("exit2")
           return;
         }
       }
     }
     if (localStorage.getItem('onlySelectedCity')=="true" && !checked) {
-      if (cities.length > 2 && cities !== null){
+      if (doesLocalVarExist(cities)){
         const cityFound = await checkIfExists(cities,item.location.name)
         
         if (cityFound==true){checked=true}else{
-          console.log("exit3")
           return;
         }
       }
     }
     if (localStorage.getItem('onlySelectedEvent')=="true" && !checked) {
-      if (events.length > 2 && events !== null){
+      if (doesLocalVarExist(events)){
         const eventFound = await checkIfExists(events,item.type)
         
         if (eventFound==true){checked=true}else{
-          console.log("exit4")
           return;
         }
       }
