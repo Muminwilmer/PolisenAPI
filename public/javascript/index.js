@@ -106,7 +106,6 @@ function populateTable(inputString) {
   let count = 0
   
   parsedData.forEach(async item => {
-    let skip;
     // // Detects if you only want specific cities and removes them
     // if (localStorage.getItem('onlySelectedCity') === "true") {
     //   const cities = localStorage.getItem('cities');
@@ -137,45 +136,48 @@ function populateTable(inputString) {
         }
       }
     }
-    let checked;
-    if (localStorage.getItem('onlySelectedBoth') && !checked) {
+
+    let checked = false;
+    if (localStorage.getItem('onlySelectedBoth')=="true" && !checked) {
       console.log(localStorage.getItem('cities').length)
       if (localStorage.getItem('cities').length > 2 && localStorage.getItem('events').length > 2){
         const cityFound = await checkIfExists(localStorage.getItem('cities'),item.location.name)
         const eventFound = await checkIfExists(localStorage.getItem('events'),item.type)
-  
-        if (cityFound==true && eventFound==true){checked=true}else{
+        console.log(cityFound)
+        console.log(eventFound)
+        console.log(cityFound==true && eventFound==true)
+        if (cityFound==true && eventFound==true){}else{
           console.log("exit1")
           return;
         }
       }
     }
-    if (localStorage.getItem('onlySelectedCity') && localStorage.getItem('onlySelectedEvents') && !checked) {
+    if (localStorage.getItem('onlySelectedCity')=="true" && localStorage.getItem('onlySelectedEvents')=="true") {
       if (localStorage.getItem('cities').length > 2 || localStorage.getItem('events').length > 2){
         const cityFound = await checkIfExists(localStorage.getItem('cities'),item.location.name)
         const eventFound = await checkIfExists(localStorage.getItem('events'),item.type)
 
-        if (cityFound==true || eventFound==true){checked=true}else{
+        if (cityFound==true || eventFound==true){}else{
           console.log("exit2")
           return;
         }
       }
     }
-    if (localStorage.getItem('onlySelectedCity') && !checked) {
+    if (localStorage.getItem('onlySelectedCity')=="true") {
       if (localStorage.getItem('cities').length > 2){
         const cityFound = await checkIfExists(localStorage.getItem('cities'),item.location.name)
         
-        if (cityFound==true){checked=true}else{
+        if (cityFound==true){}else{
           console.log("exit3")
           return;
         }
       }
     }
-    if (localStorage.getItem('onlySelectedEvents') && !checked) {
+    if (localStorage.getItem('onlySelectedEvents')=="true") {
       if (localStorage.getItem('events').length > 2){
         const eventFound = await checkIfExists(localStorage.getItem('events'),item.type)
         
-        if (eventFound==true){checked=true}else{
+        if (eventFound==true){}else{
           console.log("exit4")
           return;
         }
