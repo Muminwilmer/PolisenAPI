@@ -250,23 +250,26 @@
 
       // Fill city list
       var cityValue = localStorage.getItem('cities')
-      var selectedCities = cityValue ? cityValue : [];
-      var cityList = document.getElementById("selectCityList");
-      fillList(cityList,selectedCities)
+      if (cityValue !== null){
+        var cityList = document.getElementById("selectCityList");
+        console.log(fillList(cityList,cityValue))
+      }
 
       // Fill event list
       var eventValue = localStorage.getItem('events')
-      var selectedEvents = eventValue ? eventValue : [];
-      var eventList = document.getElementById("selectEventList");
-      fillList(eventList,selectedEvents)
+      if (eventValue !== null){
+        var eventList = document.getElementById("selectEventList");
+        console.log(fillList(eventList,eventValue))
+      }
+
 
       function fillList(list,Info){
         // Loop entire list
         for (var i = 0; i < list.options.length; i++) {
+          console.log(".")
           for (var i = 0; i < Info.length; i++) {
             // If it's there, select it
             if (Info == list.options[i].value) {
-              console.log(list.options[i])
               list.options[i].selected = true;
             }
           }
