@@ -11,7 +11,7 @@ function getSelectedValues(type,list) {
 
   for (var i = 0; i < list.options.length; i++) {
     if (list.options[i].selected) {
-      selectedValues.push({type:list.options[i].value});
+      selectedValues.push({"type":list.options[i].value});
     }
   }
 
