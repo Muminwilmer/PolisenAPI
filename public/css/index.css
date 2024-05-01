@@ -69,7 +69,7 @@ img{
   background-color: lightgreen;
 }
 
-#clearCity{
+#clearCity, #clearEvent{
   padding: 10px;
   font-weight: bold;
   border: none;
@@ -78,7 +78,7 @@ img{
   overflow: hidden;
   font-size: 100%;
 }
-#clearCity:hover{
+#clearCity,#clearEvent:hover{
   background-color: red;
 
 }
@@ -97,7 +97,7 @@ img{
   display: flex;
 }
 
-#selectLists{
+#selectCityList,#selectEventList{
   height: 80%;
   max-width:50%;
 }
@@ -115,7 +115,7 @@ img{
 }
 
 #row2{
-  width: 20%;
+  width: 40%;
   display: inline-block;
   padding-right: 5px;
 }
