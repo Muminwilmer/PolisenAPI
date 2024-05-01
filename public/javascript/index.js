@@ -50,14 +50,14 @@ function newUpdate() {
   const parsedData = parseJsonString(data.requestText);
   const parsedID = parsedData[0].name.toString()
 
-  if (getCookie("audioCity") == "true") {
-    if (!getCookie("citys").includes(parsedID)) return;
-  } else {
-    if (getCookie("playAudio") == "true") {
-      var audio = document.getElementById("newsAudio");
-      audio.play()
-    };
-  }
+  // if (getCookie("audioCity") == "true") {
+  //   if (!getCookie("cities").includes(parsedID)) return;
+  // } else {
+  //   if (getCookie("playAudio") == "true") {
+  //     var audio = document.getElementById("newsAudio");
+  //     audio.play()
+  //   };
+  // }
   setTimeout(function() {
     alert.remove()
   }, 15000);
@@ -73,17 +73,17 @@ function populateTable(inputString) {
   const parsedID = parsedData[0].id.toString()
 
   // Adds the oldEvent cookie if it doesn't exist.
-  if (getCookie("oldEvent") == null) {
+  if (localStorage.getItem('oldEvent') == null) {
     document.cookie = "oldEvent=" + parsedID;
   }
 
   // Detect and handle new events
-  if (getCookie("oldEvent") !== parsedID) {
+  if (localStorage.getItem('oldEvent') !== parsedID) {
     newUpdate()
-    console.log(getCookie("oldEvent"), parsedID, "News!")
+    console.log(localStorage.getItem('oldEvent'), parsedID, "News!")
     document.cookie = "oldEvent=" + parsedID;
   } else {
-    console.log(getCookie("oldEvent"), parsedID, "Nothing new.")
+    console.log(localStorage.getItem('oldEvent'), parsedID, "Nothing new.")
   }
 
   // Adds and removes the Reload icon
@@ -106,9 +106,9 @@ function populateTable(inputString) {
   let count = 0
   parsedData.forEach(item => {
     // Detects if you only want specific cities and removes them
-    if (getCookie("onlySelectedCity") == "true") {
-      if (getCookie("citys") !== ""){
-        if (!getCookie("citys").includes(item.location.name)) {
+    if (localStorage.getItem('onlySelectedCity') == "true") {
+      if (localStorage.getItem('cities') !== ""){
+        if (!localStorage.getItem('cities').includes(item.location.name)) {
           return;
         }
       }

@@ -225,10 +225,10 @@
       </select>
       <div id="applyDiv">
         <div id="divdiv">
-          <button id="clearCity" onclick='document.cookie = "citys="'>Clear City Selections</button>
+          <button id="clearCity" onclick="localStorage.setItem('cities', null)">Clear City Selections</button>
         </div>
         <div id="divdiv">
-          <button id="clearEvent" onclick='document.cookie = "events="'>Clear Event Selections</button>
+          <button id="clearEvent" onclick="localStorage.setItem('events', null)">Clear Event Selections</button>
         </div>
       </div>
 
@@ -241,31 +241,34 @@
       // Default Settings
       // if (getCookie("playAudio") !== "true" && getCookie("playAudio") !== "false") {document.cookie = "playAudio=" + "false"};
       // if (getCookie("audioCity") !== "true" && getCookie("audioCity") !== "false") {document.cookie = "audioCity=true"};
-      if (getCookie("onlySelectedCity") !== "true" && getCookie("onlySelectedCity") !== "false") {document.cookie = "onlySelectedCity=true"};
+      if (localStorage.getItem('onlySelectedCity') == undefined){localStorage.setItem('onlySelectedCity', true)};
 
 
       // playAudio.checked = getCookie("playAudio") === "true";
       // audioCity.checked = getCookie("audioCity") === "true";
-      onlySelectedCity.checked = getCookie("onlySelectedCity") === "true";
+      onlySelectedCity.checked = localStorage.getItem('onlySelectedCity')
 
       // Fill city list
-      var cookieCityValue = getCookie("citys");
-      var selectedCities = cookieCityValue ? cookieCityValue.split(',') : [];
+      var cityValue = localStorage.getItem('cities')
+      var selectedCities = cityValue ? cityValue : [];
       var cityList = document.getElementById("selectCityList");
       fillList(cityList,selectedCities)
 
       // Fill event list
-      var cookieEventValue = getCookie("events");
-      var selectedEvents = cookieEventValue ? cookieEventValue.split(',') : [];
+      var eventValue = localStorage.getItem('events')
+      var selectedEvents = eventValue ? eventValue : [];
       var eventList = document.getElementById("selectEventList");
       fillList(eventList,selectedEvents)
 
       function fillList(list,Info){
         // Loop entire list
         for (var i = 0; i < list.options.length; i++) {
-          // If it's there, select it
-          if (Info.includes(list.options[i].value)) {
-            list.options[i].selected = true;
+          for (var i = 0; i < Info.length; i++) {
+            // If it's there, select it
+            if (Info == list.options[i].value) {
+              console.log(list.options[i])
+              list.options[i].selected = true;
+            }
           }
         }
       }
