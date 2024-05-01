@@ -78,7 +78,7 @@ img{
   overflow: hidden;
   font-size: 100%;
 }
-#clearCity,#clearEvent:hover{
+#clearCity:hover,#clearEvent:hover{
   background-color: red;
 
 }
@@ -115,7 +115,7 @@ img{
 }
 
 #row2{
-  width: 40%;
+  width: 20%;
   display: inline-block;
   padding-right: 5px;
 }
