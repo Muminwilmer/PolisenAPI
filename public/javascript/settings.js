@@ -9,13 +9,13 @@ function applySettings() {
 }
 
 function getSelectedValues(type,list) {
-  var selectedValues = [];
+  var values = [];
 
   for (var i = 0; i < list.options.length; i++) {
     if (list.options[i].selected) {
-      selectedValues.push({type:list.options[i].value});
+      values.push({type:list.options[i].value});
     }
   }
 
-  localStorage.setItem(type, JSON.stringify(selectedValues));
+  if (values.length>0)localStorage.setItem(type, JSON.stringify(values));
 }
