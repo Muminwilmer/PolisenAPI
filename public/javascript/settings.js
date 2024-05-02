@@ -17,5 +17,5 @@ function getSelectedValues(type,list) {
     }
   }
 
-  if (values.length>0)localStorage.setItem(type, JSON.stringify(values));
+  localStorage.setItem(type, JSON.stringify(values));
 }
