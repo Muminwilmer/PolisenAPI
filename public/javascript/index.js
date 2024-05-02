@@ -103,8 +103,7 @@ function populateTable(inputString) {
   parsedData.forEach(async item => {
     
     async function checkIfExists(list,check){
-      if (!doesLocalVarExist(list)) return 0;
-      if (!doesLocalVarExist(check)) return 0;
+      if (list == null)return 0;
 
       list = JSON.parse(list)
       for (let i = 0; i < list.length; i++) {
