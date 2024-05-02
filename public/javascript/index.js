@@ -61,6 +61,7 @@ function populateTable(inputString) {
 
 
   const parsedData = parseJsonString(data.requestText);
+  console.log(parsedData)
   const parsedID = parsedData[0].id.toString()
 
   // Adds the oldEvent cookie if it doesn't exist.
