@@ -253,7 +253,7 @@ function populateTable(inputString) {
 
 
     //Event date
-    const [, day, month, time] = item.name.match(/(\d{2}) (\w{3}) (\d{2}\.\d{2})/);
+    const [, day, month, time] = item.name.match(/(\d+) (\w+) (\d{2}\.\d{2})/);
     let datetimeCell = row.insertCell(3);
     datetimeCell.innerHTML = `${day} ${month[0].toUpperCase() + month.substring(1)} ${time}`
 
