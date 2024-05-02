@@ -5,6 +5,11 @@ function applySettings() {
   getSelectedValues("events",document.getElementById("selectEventList"))
 }
 
+function defaultSettings() {
+  localStorage.setItem('eitherSelected', false);
+  localStorage.setItem('onlySelectedBoth', false);
+}
+
 function getSelectedValues(type,list) {
   var values = [];
 
