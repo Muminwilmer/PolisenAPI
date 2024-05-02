@@ -104,19 +104,13 @@ function populateTable(inputString) {
     
     async function checkIfExists(list,check){
       if (list === null || list === undefined) {
-        return false;
+        console.warn("Please select atleast one event & city",list)
+        return true;
       }
       try {
         list = JSON.parse(list);
       } catch (error) {
         console.error("Error parsing JSON:", error);
-        return false;
-      }
-      if (list === null || list === undefined) {
-        return false;
-      }
-      if (!Array.isArray(list)) {
-        console.error("Input is not an array");
         return false;
       }
       for (let i = 0; i < list.length; i++) {
@@ -132,7 +126,13 @@ function populateTable(inputString) {
 
     function doesLocalVarExist(variable){
       try {
-        if (variable == null) return false;
+        if (variable === null) return false;
+      }catch(error){
+        return false;
+      };
+
+      try {
+        if (variable === undefined) return false;
       }catch(error){
         return false;
       };
