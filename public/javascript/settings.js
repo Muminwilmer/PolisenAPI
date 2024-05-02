@@ -1,8 +1,5 @@
 function applySettings() {
-  // document.cookie = "playAudio=" + document.getElementById("playAudio").checked;
-  // document.cookie = "audioCity=" + document.getElementById("audioCity").checked;
-  localStorage.setItem('onlySelectedCity', document.getElementById("onlySelectedCity").checked);
-  localStorage.setItem('onlySelectedEvent', document.getElementById("onlySelectedEvent").checked);
+  localStorage.setItem('eitherSelected', document.getElementById("onlySelectedEvent").checked);
   localStorage.setItem('onlySelectedBoth', document.getElementById("onlySelectedBoth").checked);
   getSelectedValues("cities",document.getElementById("selectCityList"))
   getSelectedValues("events",document.getElementById("selectEventList"))
@@ -17,5 +14,5 @@ function getSelectedValues(type,list) {
     }
   }
 
-  localStorage.setItem(type, JSON.stringify(values));
+  if (values.length>0)localStorage.setItem(type, JSON.stringify(values));
 }
