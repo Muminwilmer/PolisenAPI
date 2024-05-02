@@ -104,15 +104,19 @@ function populateTable(inputString) {
     
     async function checkIfExists(list,check){
       if (list === null || list === undefined) {
-        console.warn("Please select atleast one event & city",list)
-        return true;
+        return "empty";
       }
       try {
         list = JSON.parse(list);
       } catch (error) {
         console.error("Error parsing JSON:", error);
-        return false;
+        return "empty";
       }
+      console.log(list)
+      if (list === null || list === undefined) {
+        return "empty";
+      }
+
       for (let i = 0; i < list.length; i++) {
         if (list[i].type == check) {
           return true;
@@ -159,8 +163,12 @@ function populateTable(inputString) {
         const cityFound = await checkIfExists(cities,item.location.name)
         const eventFound = await checkIfExists(events,item.type)
 
-        if (cityFound==true && eventFound==true){checked=true}else{
-          return;
+        if (cityFound!=="empty"&&eventFound!=="empty"){
+          if (cityFound==true && eventFound==true){checked=true}else{
+            return;
+          }
+        }else{
+          console.warn(`Please select atleast one city and event! City:${cities}(${cityFound}) Event:${events}(${eventFound})`)
         }
       }
     }
