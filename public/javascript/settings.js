@@ -10,7 +10,7 @@ function pressAnimation(button){
   button.style.transform = "scale(0.90)";
   setTimeout(function() {
     button.style.transform = "scale(1)";
-  }, 320);
+  }, 100);
 }
 
 function defaultSettings() {
