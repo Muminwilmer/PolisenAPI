@@ -103,9 +103,22 @@ function populateTable(inputString) {
   parsedData.forEach(async item => {
     
     async function checkIfExists(list,check){
-      if (list == null)return 0;
-
-      list = JSON.parse(list)
+      if (list === null || list === undefined) {
+        return false;
+      }
+      try {
+        list = JSON.parse(list);
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+        return false;
+      }
+      if (list === null || list === undefined) {
+        return false;
+      }
+      if (!Array.isArray(list)) {
+        console.error("Input is not an array");
+        return false;
+      }
       for (let i = 0; i < list.length; i++) {
         if (list[i].type == check) {
           return true;
