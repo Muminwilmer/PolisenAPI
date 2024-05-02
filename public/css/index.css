@@ -58,12 +58,15 @@ img{
   font-weight: bold;
 }
 
-#applySettings{
+
+
+#clearCity, #clearEvent,#applySettings{
   padding: 10px;
   font-weight: bold;
   border: none;
   border-radius: 5px;
   max-width: 80%;
+  min-width: 60%;
   overflow: hidden;
   font-size: 80%;
 }
@@ -72,15 +75,6 @@ img{
   background-color: lightgreen;
 }
 
-#clearCity, #clearEvent{
-  padding: 10px;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  max-width: 80%;
-  overflow: hidden;
-  font-size: 80%;
-}
 #clearCity:hover,#clearEvent:hover{
   background-color: red;
 }
