@@ -103,6 +103,9 @@ function populateTable(inputString) {
   parsedData.forEach(async item => {
     
     async function checkIfExists(list,check){
+      if (!doesLocalVarExist(list)) return 0;
+      if (!doesLocalVarExist(check)) return 0;
+
       list = JSON.parse(list)
       for (let i = 0; i < list.length; i++) {
         if (list[i].type == check) {
@@ -116,9 +119,24 @@ function populateTable(inputString) {
     }
 
     function doesLocalVarExist(variable){
-      if (variable == null)return false;
-      if (variable.length == 0)return false;
-      return true;
+      try {
+        if (variable == null) return false;
+      }catch(error){
+        return false;
+      };
+
+      try {
+        if (variable.length == 0) return false;
+      }catch(error){
+        return false;
+      };
+
+      try {
+        if (variable.length>0) return true;
+      }catch(error){
+        return false;
+      };
+      return true
     }
 
     let checked = false;
@@ -134,7 +152,7 @@ function populateTable(inputString) {
         }
       }
     }
-    if (localStorage.getItem('onlySelectedCity')=="true" && localStorage.getItem('onlySelectedEvent')=="true" && !checked) {
+    if (localStorage.getItem('eitherSelected')=="true" && !checked) {
       if (doesLocalVarExist(cities) || doesLocalVarExist(events)){
         const cityFound = await checkIfExists(cities,item.location.name)
         const eventFound = await checkIfExists(events,item.type)
@@ -144,24 +162,24 @@ function populateTable(inputString) {
         }
       }
     }
-    if (localStorage.getItem('onlySelectedCity')=="true" && !checked) {
-      if (doesLocalVarExist(cities)){
-        const cityFound = await checkIfExists(cities,item.location.name)
-        
-        if (cityFound==true){checked=true}else{
-          return;
-        }
-      }
-    }
-    if (localStorage.getItem('onlySelectedEvent')=="true" && !checked) {
-      if (doesLocalVarExist(events)){
-        const eventFound = await checkIfExists(events,item.type)
-        
-        if (eventFound==true){checked=true}else{
-          return;
-        }
-      }
-    }
+  //   if (localStorage.getItem('onlySelectedCity')=="true" && !checked) {
+  //     if (doesLocalVarExist(cities)){
+  //       const cityFound = await checkIfExists(cities,item.location.name)
+  //       
+  //       if (cityFound==true){checked=true}else{
+  //         return;
+  //       }
+  //     }
+  //   }
+  //   if (localStorage.getItem('onlySelectedEvent')=="true" && !checked) {
+  //     if (doesLocalVarExist(events)){
+  //       const eventFound = await checkIfExists(events,item.type)
+  //       
+  //       if (eventFound==true){checked=true}else{
+  //         return;
+  //       }
+  //     }
+  //   }
 
     // Adds row
     let row = table.insertRow();

@@ -1,8 +1,5 @@
-if (localStorage.getItem('onlySelectedCity') == null) {
-    localStorage.setItem('onlySelectedCity', true)
-}
-if (localStorage.getItem('onlySelectedEvent') == null) {
-    localStorage.setItem('onlySelectedEvent', true)
+if (localStorage.getItem('eitherSelected') == null) {
+    localStorage.setItem('eitherSelected', true)
 }
 if (localStorage.getItem('onlySelectedBoth') == null) {
     localStorage.setItem('onlySelectedBoth', false)

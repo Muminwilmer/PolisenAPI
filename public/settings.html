@@ -23,29 +23,9 @@
 
   <div id="selections">
     <div id="row1">
-      <!-- <div id="checkbox">
-        <input type="checkbox" id="playAudio" name="PlayAudio" />
-        <label for="playAudio">Play audio when there is news</label>
-      </div>
-      <div id="padding"></div>
       <div id="checkbox">
-        <input type="checkbox" id="audioCity" name="audioCity" />
-        <label for="audioCity">Only play audio from these cities</label>
-      </div>
-      <div id="padding"></div> -->
-      <div id="checkbox">
-        <input type="checkbox" id="onlySelectedCity" name="onlySelectedCity" />
-        <label for="onlySelectedCity">show selected cities</label>
-      </div>
-      <div id="padding"></div>
-      <div id="checkbox">
-        <input type="checkbox" id="onlySelectedEvent" name="onlySelectedEvent" />
-        <label for="onlySelectedEvent">show selected events</label>
-      </div>
-      <div id="padding"></div>
-      <div id="checkbox">
-        <input type="checkbox" id="onlySelectedEvent" name="onlySelectedEvent" />
-        <label for="onlySelectedEvent">Show either cities or events</label>
+        <input type="checkbox" id="eitherSelected" name="eitherSelected" />
+        <label for="eitherSelected">Show either cities or events</label>
       </div>
       <div id="padding"></div>
       <div id="checkbox">
@@ -436,16 +416,8 @@
   <script>
     async function loadSettings() {
       // Default Settings
-      // if (getCookie("playAudio") !== "true" && getCookie("playAudio") !== "false") {document.cookie = "playAudio=" + "false"};
-      // if (getCookie("audioCity") !== "true" && getCookie("audioCity") !== "false") {document.cookie = "audioCity=true"};
-      if (localStorage.getItem('onlySelectedCity') == null){localStorage.setItem('onlySelectedCity', true)};
-      if (localStorage.getItem('onlySelectedEvent') == null){localStorage.setItem('onlySelectedEvent', true)};
-      if (localStorage.getItem('onlySelectedBoth') == null){localStorage.setItem('onlySelectedBoth', false)};
 
-      // playAudio.checked = getCookie("playAudio") === "true";
-      // audioCity.checked = getCookie("audioCity") === "true";
-      onlySelectedCity.checked = localStorage.getItem('onlySelectedCity') == "true";
-      onlySelectedEvent.checked = localStorage.getItem('onlySelectedEvent') == "true";
+      eitherSelected.checked = localStorage.getItem('eitherSelected') == "true";
       onlySelectedBoth.checked = localStorage.getItem('onlySelectedBoth') == "true";
 
       // Fill city list
