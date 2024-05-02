@@ -72,17 +72,15 @@ img{
 }
 
 #applySettings:active,#clearCity:active,#clearEvent:active,#defaultSettings:active{
-  transform: scale(0.975);
+  transform: scale(0.95);
 }
 
 #applySettings:hover{
   background-color: lightgreen;
-  transform: scale(1.025);
 }
 
 #clearCity:hover,#clearEvent:hover,#defaultSettings:hover{
   background-color: red;
-  transform: scale(1.025);
 }
 
 #applyDiv{

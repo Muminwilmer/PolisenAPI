@@ -404,10 +404,10 @@
       </select>
       <div id="applyDiv">
         <div id="divdiv">
-          <button id="clearCity" onclick="localStorage.setItem('cities', null)">Clear City Selections</button>
+          <button id="clearCity" onclick="localStorage.setItem('cities', null);pressAnimation(document.getElementById('clearCity'))">Clear City Selections</button>
         </div>
         <div id="divdiv">
-          <button id="clearEvent" onclick="localStorage.setItem('events', null)">Clear Event Selections</button>
+          <button id="clearEvent" onclick="localStorage.setItem('events', null);pressAnimation(document.getElementById('clearEvent'))">Clear Event Selections</button>
         </div>
       </div>
 
