@@ -58,17 +58,21 @@ img{
   font-weight: bold;
 }
 
-
-
 #clearCity, #clearEvent,#applySettings{
   padding: 10px;
   font-weight: bold;
   border: none;
   border-radius: 5px;
   max-width: 80%;
-  min-width: 60%;
+  min-width: fit-content;
   overflow: hidden;
   font-size: 80%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#applySettings:active,#clearCity:active,#clearEvent:active{
+  transform: scale(0.95);
 }
 
 #applySettings:hover{

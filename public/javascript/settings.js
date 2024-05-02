@@ -3,6 +3,12 @@ function applySettings() {
   localStorage.setItem('onlySelectedBoth', document.getElementById("onlySelectedBoth").checked);
   getSelectedValues("cities",document.getElementById("selectCityList"))
   getSelectedValues("events",document.getElementById("selectEventList"))
+
+  var button = document.getElementById("applySettings");
+  button.style.transform = "scale(0.95)";
+  setTimeout(function() {
+      button.style.transform = "scale(1)";
+  }, 300);
 }
 
 function defaultSettings() {
