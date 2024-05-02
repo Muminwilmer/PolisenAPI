@@ -14,5 +14,5 @@ if (localStorage.getItem('cities') == null) {
     localStorage.setItem('cities', true)
 }
 if (localStorage.getItem('events') == null) {
-    localStorage.setItem('events', true)
+    localStorage.setItem('events', [])
 }
