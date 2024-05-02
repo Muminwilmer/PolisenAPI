@@ -252,9 +252,14 @@ function populateTable(inputString) {
     //locationCell.appendChild(dropdownButton);
 
 
-    //Date
-    const formattedDate = formatDateString(item.datetime);
+    //Event date
+    const [, day, month, time] = item.name.match(/(\d{2}) (\w{3}) (\d{2}\.\d{2})/);
     let datetimeCell = row.insertCell(3);
+    datetimeCell.innerHTML = `${day} ${month[0].toUpperCase() + month.substring(1)} ${time}`
+
+    //Published
+    const formattedDate = formatDateString(item.datetime);
+    let datetimeCell = row.insertCell(4);
     datetimeCell.innerHTML = formattedDate
   })
 
