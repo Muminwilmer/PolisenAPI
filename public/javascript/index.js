@@ -173,24 +173,6 @@ function populateTable(inputString) {
         }
       }
     }
-  //   if (localStorage.getItem('onlySelectedCity')=="true" && !checked) {
-  //     if (doesLocalVarExist(cities)){
-  //       const cityFound = await checkIfExists(cities,item.location.name)
-  //       
-  //       if (cityFound==true){checked=true}else{
-  //         return;
-  //       }
-  //     }
-  //   }
-  //   if (localStorage.getItem('onlySelectedEvent')=="true" && !checked) {
-  //     if (doesLocalVarExist(events)){
-  //       const eventFound = await checkIfExists(events,item.type)
-  //       
-  //       if (eventFound==true){checked=true}else{
-  //         return;
-  //       }
-  //     }
-  //   }
 
     // Adds row
     let row = table.insertRow();
