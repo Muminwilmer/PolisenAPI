@@ -1,5 +1,5 @@
 if (localStorage.getItem('eitherSelected') == null) {
-    localStorage.setItem('eitherSelected', true)
+    localStorage.setItem('eitherSelected', false)
 }
 if (localStorage.getItem('onlySelectedBoth') == null) {
     localStorage.setItem('onlySelectedBoth', false)
