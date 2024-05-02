@@ -63,6 +63,9 @@ img{
   font-weight: bold;
   border: none;
   border-radius: 5px;
+  max-width: 80%;
+  overflow: hidden;
+  font-size: 80%;
 }
 
 #applySettings:hover{
@@ -76,7 +79,7 @@ img{
   border-radius: 5px;
   max-width: 80%;
   overflow: hidden;
-  font-size: 100%;
+  font-size: 80%;
 }
 #clearCity:hover,#clearEvent:hover{
   background-color: red;
