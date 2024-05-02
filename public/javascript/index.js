@@ -259,8 +259,8 @@ function populateTable(inputString) {
 
     //Published
     const formattedDate = formatDateString(item.datetime);
-    let datetimeCell = row.insertCell(4);
-    datetimeCell.innerHTML = formattedDate
+    let publishCell = row.insertCell(4);
+    publishCell.innerHTML = formattedDate
   })
 
 }
