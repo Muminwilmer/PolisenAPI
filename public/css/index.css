@@ -58,7 +58,7 @@ img{
   font-weight: bold;
 }
 
-#clearCity, #clearEvent,#applySettings{
+#clearCity, #clearEvent,#applySettings,#defaultSettings{
   padding: 10px;
   font-weight: bold;
   border: none;
@@ -71,18 +71,18 @@ img{
   transition: transform 0.2s ease;
 }
 
-#applySettings:active,#clearCity:active,#clearEvent:active{
-  transform: scale(0.95);
+#applySettings:active,#clearCity:active,#clearEvent:active,#defaultSettings:active{
+  transform: scale(0.975);
 }
 
 #applySettings:hover{
-  background-color: lightgreen!important;
-  transform: scale(1.05)!important;
+  background-color: lightgreen;
+  transform: scale(1.025);
 }
 
-#clearCity:hover,#clearEvent:hover{
-  background-color: red!important;
-  transform: scale(1.05!important);
+#clearCity:hover,#clearEvent:hover,#defaultSettings:hover{
+  background-color: red;
+  transform: scale(1.025);
 }
 
 #applyDiv{

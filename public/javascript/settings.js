@@ -14,6 +14,7 @@ function pressAnimation(button){
 }
 
 function defaultSettings() {
+  pressAnimation(document.getElementById("defaultSettings"))
   localStorage.setItem('eitherSelected', false);
   localStorage.setItem('onlySelectedBoth', false);
 }
