@@ -5,27 +5,18 @@ window.onload = function() {
 }
 setInterval(populateTable, 45*1000);
 
-function test() {
+function testNew() {
   newUpdate()
   populateTable()
 }
 
-function testType() {
+function testData(type) {
   const data = getData();
   const parsedData = parseJsonString(data.requestText);
   parsedData.forEach(item => {
     var types = [];
-    types.push(item.type)
+    types.push(item[type])
     console.log(types)
-  })
-}
-function testCity() {
-  const data = getData();
-  const parsedData = parseJsonString(data.requestText);
-  parsedData.forEach(item => {
-    var location = [];
-    location.push(item.location.name)
-    console.log(location)
   })
 }
 function getData() {
