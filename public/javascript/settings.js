@@ -1,5 +1,5 @@
 function applySettings() {
-  localStorage.setItem('eitherSelected', document.getElementById("onlySelectedEvent").checked);
+  localStorage.setItem('eitherSelected', document.getElementById("eitherSelected").checked);
   localStorage.setItem('onlySelectedBoth', document.getElementById("onlySelectedBoth").checked);
   getSelectedValues("cities",document.getElementById("selectCityList"))
   getSelectedValues("events",document.getElementById("selectEventList"))
