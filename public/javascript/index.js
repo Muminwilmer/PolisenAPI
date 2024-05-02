@@ -103,16 +103,13 @@ function populateTable(inputString) {
   parsedData.forEach(async item => {
     
     async function checkIfExists(list,check){
-      if (list === null || list === undefined) {
-        return "empty";
-      }
       try {
         list = JSON.parse(list);
       } catch (error) {
         console.error("Error parsing JSON:", error);
         return "empty";
       }
-      console.log(list)
+
       if (list === null || list === undefined) {
         return "empty";
       }
@@ -168,7 +165,7 @@ function populateTable(inputString) {
             return;
           }
         }else{
-          console.warn(`Please select atleast one city and event! City:${cities}(${cityFound}) Event:${events}(${eventFound})`)
+          console.warn(`Please select atleast one city and event! City exist:(${cityFound}) Event exist:(${eventFound})`)
         }
       }
     }
