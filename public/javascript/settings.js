@@ -1,14 +1,16 @@
 function applySettings() {
+  pressAnimation(document.getElementById("applySettings"))
   localStorage.setItem('eitherSelected', document.getElementById("eitherSelected").checked);
   localStorage.setItem('onlySelectedBoth', document.getElementById("onlySelectedBoth").checked);
   getSelectedValues("cities",document.getElementById("selectCityList"))
   getSelectedValues("events",document.getElementById("selectEventList"))
+}
 
-  var button = document.getElementById("applySettings");
-  button.style.transform = "scale(0.95)";
+function pressAnimation(button){
+  button.style.transform = "scale(0.90)";
   setTimeout(function() {
-      button.style.transform = "scale(1)";
-  }, 300);
+    button.style.transform = "scale(1)";
+  }, 320);
 }
 
 function defaultSettings() {

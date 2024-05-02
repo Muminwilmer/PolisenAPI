@@ -68,19 +68,21 @@ img{
   overflow: hidden;
   font-size: 80%;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 #applySettings:active,#clearCity:active,#clearEvent:active{
-  transform: scale(0.95);
+  transform: scale(0.90);
 }
 
 #applySettings:hover{
   background-color: lightgreen;
+  transform: scale(1.10);
 }
 
 #clearCity:hover,#clearEvent:hover{
   background-color: red;
+  transform: scale(1.10);
 }
 
 #applyDiv{
