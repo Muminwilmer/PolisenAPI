@@ -62,6 +62,8 @@ function populateTable(inputString) {
 
   const parsedData = parseJsonString(data.requestText);
   console.log(parsedData)
+  const sortedData = parsedData.sort((a, b) => b.id - a.id);
+  console.log(sortedData)
   const parsedID = parsedData[0].id.toString()
 
   // Adds the oldEvent cookie if it doesn't exist.
