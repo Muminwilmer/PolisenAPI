@@ -3,7 +3,7 @@ const URL = "https://polisen.se/api/events";
 window.onload = function() {
   populateTable()
 }
-setInterval(populateTable, 30*1000);
+setInterval(populateTable, 45*1000);
 
 function test() {
   newUpdate()
