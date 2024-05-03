@@ -146,6 +146,26 @@ function populateTable(inputString) {
       return true
     }
 
+    function checkIfLastEmpty(){
+      // Add text if table is empty
+      console.log(parsedData.length)
+      console.log(count)
+      console.log(table.length)
+      console.log("..")
+      if (parsedData.length == count && table.length == 0){
+        const row = table.insertRow();
+        const row2 = table.insertRow();
+        let emptyTableCell = row.insertCell(0);
+        let emptyInfoCell = row2.insertCell(0);
+        emptyTableCell.innerHTML = `There's currently no news in the selected cities/events`
+        if (localStorage.getItem('onlySelectedBoth')=="true" && doesLocalVarExist(cities) || doesLocalVarExist(events)){
+          emptyInfoCell.innerHTML = `You have sort by both enabled but you haven't selected both!`
+        }else{
+          emptyInfoCell.innerHTML = `😋`
+        }
+      }
+    }
+
     let checked = false;
     const cities = localStorage.getItem('cities')
     const events = localStorage.getItem('events')
@@ -156,9 +176,11 @@ function populateTable(inputString) {
 
         if (cityFound!=="empty"&&eventFound!=="empty"){
           if (cityFound==true && eventFound==true){checked=true}else{
+            checkIfLastEmpty()
             return;
           }
         }else{
+          checkIfLastEmpty()
           console.warn(`Please select atleast one city and event! City exist:(${cityFound}) Event exist:(${eventFound})`)
         }
       }
@@ -169,6 +191,7 @@ function populateTable(inputString) {
         const eventFound = await checkIfExists(events,item.type)
 
         if (cityFound==true || eventFound==true){checked=true}else{
+          checkIfLastEmpty()
           return;
         }
       }
@@ -246,23 +269,6 @@ function populateTable(inputString) {
     const formattedDate = formatDateString(item.datetime);
     let publishCell = row.insertCell(4);
     publishCell.innerHTML = formattedDate
-
-    // Add text if table is empty
-    console.log(parsedData.length)
-    console.log(count)
-    console.log(table.length)
-    console.log("..")
-    if (parsedData.length == count && table.length == 0){
-      const row2 = table.insertRow();
-      let emptyTableCell = row.insertCell(0);
-      let emptyInfoCell = row2.insertCell(0);
-      emptyTableCell.innerHTML = `There's currently no news in the selected cities/events`
-      if (localStorage.getItem('onlySelectedBoth')=="true" && doesLocalVarExist(cities) || doesLocalVarExist(events)){
-        emptyInfoCell.innerHTML = `You have sort by both enabled but you haven't selected both!`
-      }else{
-        emptyInfoCell.innerHTML = `😋`
-      }
-    }
    
 
   })
