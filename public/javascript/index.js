@@ -61,9 +61,9 @@ function populateTable(inputString) {
 
 
   const parsedData = parseJsonString(data.requestText);
-  console.log(parsedData)
-  const sortedData = parsedData.sort((a, b) => b.id - a.id);
-  console.log(sortedData)
+  //console.log(parsedData)
+  //const sortedData = parsedData.sort((a, b) => b.id - a.id);
+  //console.log(sortedData)
   const parsedID = parsedData[0].id.toString()
 
   // Adds the oldEvent cookie if it doesn't exist.
@@ -246,6 +246,21 @@ function populateTable(inputString) {
     const formattedDate = formatDateString(item.datetime);
     let publishCell = row.insertCell(4);
     publishCell.innerHTML = formattedDate
+
+    // Add text if table is empty
+    if (parsedData.length == count && table.length == 0){
+      const row2 = table.insertRow();
+      let emptyTableCell = row.insertCell(0);
+      let emptyInfoCell = row2.insertCell(0);
+      emptyTableCell.innerHTML = `There's currently no news in the selected cities/events`
+      if (localStorage.getItem('onlySelectedBoth')=="true" && doesLocalVarExist(cities) || doesLocalVarExist(events)){
+        emptyInfoCell.innerHTML = `You have sort by both enabled but you haven't selected both!`
+      }else{
+        emptyInfoCell.innerHTML = `😋`
+      }
+    }
+   
+
   })
 
 }
