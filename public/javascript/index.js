@@ -146,8 +146,9 @@ function populateTable(inputString) {
       return true
     }
 
-    function checkIfLastEmpty(table,count){
+    function checkIfLastEmpty(count){
       // Add text if table is empty
+      let table = document.getElementById("dataTableBody");
       console.log(parsedData.length)
       console.log(count)
       console.log(table.length)
@@ -177,12 +178,12 @@ function populateTable(inputString) {
         if (cityFound!=="empty"&&eventFound!=="empty"){
           if (cityFound==true && eventFound==true){checked=true}else{
             count++
-            checkIfLastEmpty(table,count)
+            checkIfLastEmpty(count)
             return;
           }
         }else{
           count++
-          checkIfLastEmpty(table,count)
+          checkIfLastEmpty(count)
           console.warn(`Please select atleast one city and event! City exist:(${cityFound}) Event exist:(${eventFound})`)
         }
       }
@@ -194,7 +195,7 @@ function populateTable(inputString) {
 
         if (cityFound==true || eventFound==true){checked=true}else{
           count++
-          checkIfLastEmpty(table,count)
+          checkIfLastEmpty(count)
           return;
         }
       }
