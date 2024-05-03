@@ -146,7 +146,7 @@ function populateTable(inputString) {
       return true
     }
 
-    function checkIfLastEmpty(){
+    function checkIfLastEmpty(table){
       // Add text if table is empty
       console.log(parsedData.length)
       console.log(count)
@@ -176,11 +176,11 @@ function populateTable(inputString) {
 
         if (cityFound!=="empty"&&eventFound!=="empty"){
           if (cityFound==true && eventFound==true){checked=true}else{
-            checkIfLastEmpty()
+            checkIfLastEmpty(table)
             return;
           }
         }else{
-          checkIfLastEmpty()
+          checkIfLastEmpty(table)
           console.warn(`Please select atleast one city and event! City exist:(${cityFound}) Event exist:(${eventFound})`)
         }
       }
@@ -191,7 +191,7 @@ function populateTable(inputString) {
         const eventFound = await checkIfExists(events,item.type)
 
         if (cityFound==true || eventFound==true){checked=true}else{
-          checkIfLastEmpty()
+          checkIfLastEmpty(table)
           return;
         }
       }
