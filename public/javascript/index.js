@@ -159,13 +159,13 @@ function populateTable(inputString) {
         let emptyTableCell = row.insertCell(0);
         let emptyInfoCell = row2.insertCell(0);
         emptyTableCell.innerHTML = `There's currently no news in the selected cities/events`
-        if (localStorage.getItem('onlySelectedBoth') === "true") {
-          if (doesLocalVarExist(cities)=="empty" || doesLocalVarExist(events)=="empty") {
+        if (localStorage.getItem('onlySelectedBoth') == "true") {
+          if (!doesLocalVarExist(cities) || !doesLocalVarExist(events)) {
               emptyInfoCell.innerHTML = `You have sort by both enabled but you haven't selected both!`;
           }
         }
-        if (localStorage.getItem('eitherSelected') === "true") {
-          if (doesLocalVarExist(cities)=="empty" && doesLocalVarExist(events)=="empty") {
+        if (localStorage.getItem('eitherSelected') == "true") {
+          if (!doesLocalVarExist(cities) && !doesLocalVarExist(events)) {
             emptyInfoCell.innerHTML = `You have sort by either enabled but you haven't selected atleast one!`;
           }
         }
