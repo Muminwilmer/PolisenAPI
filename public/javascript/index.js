@@ -248,6 +248,10 @@ function populateTable(inputString) {
     publishCell.innerHTML = formattedDate
 
     // Add text if table is empty
+    console.log(parsedData.length)
+    console.log(count)
+    console.log(table.length)
+    console.log("..")
     if (parsedData.length == count && table.length == 0){
       const row2 = table.insertRow();
       let emptyTableCell = row.insertCell(0);
