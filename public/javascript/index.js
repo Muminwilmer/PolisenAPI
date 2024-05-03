@@ -160,10 +160,15 @@ function populateTable(inputString) {
         let emptyInfoCell = row2.insertCell(0);
         emptyTableCell.innerHTML = `There's currently no news in the selected cities/events`
         if (localStorage.getItem('onlySelectedBoth') === "true") {
-          if (!doesLocalVarExist(cities)=="empty" && !doesLocalVarExist(events)=="empty") {
+          if (doesLocalVarExist(cities)=="empty" || doesLocalVarExist(events)=="empty") {
               emptyInfoCell.innerHTML = `You have sort by both enabled but you haven't selected both!`;
           }
-      }
+        }
+        if (localStorage.getItem('eitherSelected') === "true") {
+          if (doesLocalVarExist(cities)=="empty" && doesLocalVarExist(events)=="empty") {
+            emptyInfoCell.innerHTML = `You have sort by either enabled but you haven't selected atleast one!`;
+          }
+        }
       }
     }
 
@@ -182,8 +187,6 @@ function populateTable(inputString) {
             return;
           }
         }else{
-          count++
-          checkIfLastEmpty(count)
           console.warn(`Please select atleast one city and event! City exist:(${cityFound}) Event exist:(${eventFound})`)
         }
       }
