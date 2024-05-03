@@ -153,7 +153,7 @@ function populateTable(inputString) {
       console.log(count)
       console.log(table.length)
       console.log("..")
-      if (parsedData.length == count && table.length == 0){
+      if (parsedData.length == count && table.length==undefined){
         const row = table.insertRow();
         const row2 = table.insertRow();
         let emptyTableCell = row.insertCell(0);
