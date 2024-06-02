@@ -61,9 +61,9 @@ function populateTable(inputString) {
 
 
   const parsedData = parseJsonString(data.requestText);
-  console.log(parsedData)
-  const sortedData = parsedData.sort((a, b) => b.id - a.id);
-  console.log(sortedData)
+  //console.log(parsedData)
+  //const sortedData = parsedData.sort((a, b) => b.id - a.id);
+  //console.log(sortedData)
   const parsedID = parsedData[0].id.toString()
 
   // Adds the oldEvent cookie if it doesn't exist.
@@ -146,6 +146,16 @@ function populateTable(inputString) {
       return true
     }
 
+    function checkIfLastEmpty(count){
+      // Add text if table is empty
+      let table = document.getElementById("dataTableBody");
+      if (parsedData.length == count && table.length==undefined){
+        const row = table.insertRow();
+        let emptyTableCell = row.insertCell(0);
+        emptyTableCell.innerHTML = `There's currently no news in the selected cities/events`
+      }
+    }
+
     let checked = false;
     const cities = localStorage.getItem('cities')
     const events = localStorage.getItem('events')
@@ -156,6 +166,8 @@ function populateTable(inputString) {
 
         if (cityFound!=="empty"&&eventFound!=="empty"){
           if (cityFound==true && eventFound==true){checked=true}else{
+            count++
+            checkIfLastEmpty(count)
             return;
           }
         }else{
@@ -169,6 +181,8 @@ function populateTable(inputString) {
         const eventFound = await checkIfExists(events,item.type)
 
         if (cityFound==true || eventFound==true){checked=true}else{
+          count++
+          checkIfLastEmpty(count)
           return;
         }
       }
@@ -246,6 +260,8 @@ function populateTable(inputString) {
     const formattedDate = formatDateString(item.datetime);
     let publishCell = row.insertCell(4);
     publishCell.innerHTML = formattedDate
+   
+
   })
 
 }
