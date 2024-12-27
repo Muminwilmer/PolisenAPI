@@ -164,3 +164,11 @@ a:visited {
 #darkRow{
 	background-color: #d3cec5;
 }
+
+table {
+margin: auto; /* Center horizontally */
+}
+/* Ensure table text aligns to the left */
+td {
+text-align: left;
+}
