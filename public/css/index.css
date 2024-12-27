@@ -5,6 +5,7 @@
   border-radius: 10px;
   padding: 20px;
   font-family: sans-serif;
+  margin: auto; /* Center horizontally */
 }
 
 
@@ -135,7 +136,9 @@ tr{
 td{
   padding-left:8px;
   font-weight: bold;
+  text-align: left;
 }
+
 
 body{
   background-color: #21222b;
@@ -165,10 +168,3 @@ a:visited {
 	background-color: #d3cec5;
 }
 
-table {
-margin: auto; /* Center horizontally */
-}
-/* Ensure table text aligns to the left */
-td {
-text-align: left;
-}
