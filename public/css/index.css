@@ -14,7 +14,7 @@ img{
 }
 
 #container{
-  justify-content: left;
+  justify-content: center;
   display:flex;
   align-items: center;
   padding-bottom: 10px;
